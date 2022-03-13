@@ -2,248 +2,283 @@
 <html>
 
 <head>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js">
-	</script>
-	<style>
-		body {
-			font-family: "Times New Roman";
-		}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <style>
+        body {
+            font-family: "Times New Roman";
+        }
 
-		a {
-			font-family: 'Courier New', Courier, monospace;
-		}
+        a {
+            font-family: 'Courier New', Courier, monospace;
+        }
 
-		tr:hover {
-			background-color: #D0D0D1;
-		}
-	</style>
-	<title></title>
+        tr:hover {
+            background-color: #D0D0D1;
+        }
+    </style>
+    <title></title>
 </head>
 
 <body>
-	<div class="container" style="margin-top: 40px !important;">
-		<h4>台中科技大學 張雅芬老師 110 學年度 第一學期 上課影片</h4>
-		<table class="table">
-			<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">影片名稱</th>
-					<th scope="col">網址</th>
-				</tr>
-			</thead>
-			<tbody id="tbody">
-				<!-- add by JavaScript -->
-			</tbody>
-		</table>
-	</div>
+    <div class="container" style="margin-top: 40px !important;">
+        <h4>台中科技大學 張雅芬老師 上課影片</h4>
+        <div>
+            <button id="110-1" class="btn btn-outline-secondary" onclick="show(this.id)">110 上</button>
+            <button id="110-2" class="btn btn-outline-secondary" onclick="show(this.id)">110 下</button>
+            <button id="111-1" class="btn btn-outline-secondary" onclick="show(this.id)">111 上</button>
+            <button id="111-2" class="btn btn-outline-secondary" onclick="show(this.id)">111 下</button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">影片名稱</th>
+                    <th scope="col">網址</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- add by JavaScript -->
+            </tbody>
+        </table>
+    </div>
 </body>
 <script>
-	let videos = {
-		"20211014": [
-			["logic1013P1", "https://reurl.cc/Mk4Lav"],
-			["logic1013P2", "https://reurl.cc/q1r4Qg"],
-			["logic1013P3", "https://reurl.cc/YjVRyD"],
-			["logic1013P4", "https://reurl.cc/oxrAbj"],
-			["logic1014P1", "https://reurl.cc/Mk4Lrv"],
-			["logic1014P2", "https://reurl.cc/YjVRLa"],
-			["logic1014P3", "https://reurl.cc/8208AX"],
-		],
-		"20211021": [
-			["ES1018P1", "https://reurl.cc/0x4W5l"],
-			["ES1018P2", "https://reurl.cc/6DjqrM"],
-			["ES1018P3", "https://reurl.cc/52DRen"],
-			["logic1018P1", "https://reurl.cc/XlZaDR"],
-			["logic1018P2", "https://reurl.cc/jgQmdD"],
-			["logic1020P1", "https://reurl.cc/vgpKDk"],
-			["logic1020P3", "https://reurl.cc/Q65VdM"],
-			["logic1020P2", "https://reurl.cc/oxVKdq"],
-			["logic1021P1", "https://reurl.cc/aNZM5Z"],
-			["logic1021P2", "https://reurl.cc/Gb5GmZ"],
-			["logic1021P3", "https://reurl.cc/Ok5RkX"],
-		],
-		"20211028": [
-			["ES1025P1", "https://youtu.be/GVuD3ibNNQo"],
-			["ES1025P2", "https://youtu.be/2fdQ2PED0sk"],
-			["ES1025P3", "https://youtu.be/_3bWaApHUcY"],
-			["logic1025P1", "https://youtu.be/pqcfE1djqK8"],
-			["logic1025P2", "https://youtu.be/V1ALyLBUbF4"],
-			["logic1025P3", "https://youtu.be/iWM0nlEQ4Iw"],
-			["logic1027P1", "https://youtu.be/KEz72-lg9pk"],
-			["logic1027P2", "https://youtu.be/iChw4uDG_Ys"],
-			["logic1027P3", "https://youtu.be/YoSccYzJrwE"],
-			["logic1028P1", "https://youtu.be/fwGZqxzaPzc"],
-			["logic1028P2", "https://youtu.be/qTsCthYU03E"],
-			["logic1028P3", "https://youtu.be/96daDN7xTdM"],
-		],
-		"20211101": [
-			["ES1101P1", "https://youtu.be/EcpOKxzybU4"],
-			["ES1101P2", "https://youtu.be/CaM2f5mlaHI"],
-			["ES1101P3", "https://youtu.be/qHNOaeHyq5c"],
-			["logic1101P1", "https://youtu.be/5l1XWhG8xXQ"],
-			["logic1103P1", "https://youtu.be/2-f2Mw7jDQI"],
-			["logic1104P1", "https://youtu.be/PvWN2V-4cjw"],
-		],
-		"20211118": [
-			["ES1115P1", "https://youtu.be/i9H-rTL6oL0"],
-			["ES1115P2", "https://youtu.be/3qdmq3GI4oc"],
-			["ES1115P3", "https://youtu.be/9frWmk76puo"],
-			["logic1117P1", "https://youtu.be/jtAE66ma-YI"],
-			["logic1118P1", "https://youtu.be/oRWZ-a36268"],
-		],
-		"20211125": [
-			["ES1122P1", "https://youtu.be/2QOdzAqFOZc"],
-			["ES1122P2", "https://youtu.be/BgLPrBNc5-Y"],
-			["logic1122P1", "https://youtu.be/KZ5NqroLF24"],
-			["logic1122P2", "https://youtu.be/_zWHKBJa9nM"],
-			["logic1122P3", "https://youtu.be/Qz5LxPu9hhM"],
-			["logic1124P1", "https://youtu.be/Jt9rfcp-5to"],
-			["logic1124P2", "https://youtu.be/1AygY-xeIAE"],
-			["logic1124P3", "https://youtu.be/wQNGDuJ8eSI"],
-			["logic1124P4", "https://youtu.be/ZUUa_iqiMVU"],
-			["logic1125P1", "https://youtu.be/IwzlNqwegic"],
-			["logic1125P2", "https://youtu.be/ivSjvs82yDY"],
-			["logic1125P3", "https://youtu.be/019dgmy5JSc"],
-		],
-		"20211202": [
-			["ES1129P1", "https://youtu.be/lWvJ_v7ISDE"],
-			["ES1129P2", "https://youtu.be/E48DvY0Favs"],
-			["ES1129P3", "https://youtu.be/4mEfHXs6vNM"],
-			["logic1129P1", "https://youtu.be/jWuAbrJfwm0"],
-			["logic1129P2", "https://youtu.be/rx0PexuzM6c"],
-			["logic1201P1", "https://youtu.be/SS93kAXnpHU"],
-			["logic1201P2", "https://youtu.be/gPNjLwfuzFc"],
-			["logic1201P3", "https://youtu.be/ZrVquhAn0SY"],
-			["logic1202P1", "https://youtu.be/zydyBPcKyTs"],
-			["logic1202P2", "https://youtu.be/A9RLrFG1_hE"],
-			["logic1202P3", "https://youtu.be/uCj0OVaRP1s"],
-			["logic1202P4", "https://youtu.be/FLUsmKmKtsA"],
-		],
-		"20211206": [
-			["ES1206P1", "https://youtu.be/xcf9elDxi10"],
-			["ES1206P2", "https://youtu.be/cWOl2bfLUAo"],
-			["ES1206P3", "https://youtu.be/TWJ-HV5g_OY"],
-			["logic1206P1", "https://youtu.be/NLlwyXmPD1A"],
-			["logic1206P2", "https://youtu.be/6ejwcFYGzCk"],
-		],
-		"20211216": [
-			["logic1216P1", "https://youtu.be/6_7z98k5R1U"],
-			["logic1216P2", "https://youtu.be/EL5P1TR6NPs"],
-			["logic1216P3", "https://youtu.be/eqgcAIdWNdw"],
-			["logic1216P4", "https://youtu.be/QtH_ugD7j2E"],
-			["logic1216P5", "https://youtu.be/PY_zGlS_too"],
-		],
-		"20211224": [
-			["ES1220P1", "https://youtu.be/VmgKaxyq0F8"],
-			["ES1220P2", "https://youtu.be/Bv4q37aQiXk"],
-			["ES1220P3", "https://youtu.be/9u7rb-ChLv8"],
-			["ES1220P4", "https://youtu.be/lYWT5lA8-GE"],
-			["logic1220P1", "https://youtu.be/K2P8En-zilY"],
-			["logic1220P2", "https://youtu.be/3oTn3EVqhTU"],
-			["logic1220P3", "https://youtu.be/yTiWfl_0i-I"],
-			["logic1222P1", "https://youtu.be/0SZFjQBMVdw"],
-			["logic1222P2", "https://youtu.be/3uA7R1_KDhs"],
-			["logic1223P1", "https://youtu.be/H2-Hwrn1TdE"],
-			["logic1223P2", "https://youtu.be/Lla47RzkUG4"],
-			["logic1223P3", "https://youtu.be/SbFNn7kj4FA"],
-		],
-		"20220101": [
-			["ES1227P1", "https://youtu.be/8cubTftj1J4"],
-			["ES1227P2", "https://youtu.be/RgJfJJQF-7Q"],
-			["logic1227P1", "https://youtu.be/Qphb1VK1Kxo"],
-			["logic1227P2", "https://youtu.be/-YN6UAwUu8w"],
-			["logic1227P3", "https://youtu.be/gDwJAIsYXdk"],
-			["logic1229P1", "https://youtu.be/uZVm0cdqFWw"],
-			["logic1229P2", "https://youtu.be/4OQasixl3MQ"],
-			["logic1229P3", "https://youtu.be/YinVDB7D87M"],
-			["logic1230P1", "https://youtu.be/K6eaxqWoPIs"],
-			["logic1230P2", "https://youtu.be/__XuDajNMqQ"],
-			["logic1230P3", "https://youtu.be/lA1qBp2XdKE"],
-			["logic1230P4", "https://youtu.be/_OT5TV-qoPw"],
-		],
-		"20220106":[
-			["logic0103P1", "https://youtu.be/BL_OrjOzR8A"],
-			["logic0103P2", "https://youtu.be/r6a02OiRXfE"],
-			["logic0103P3", "https://youtu.be/F7tgHrZ5cCI"],
-			["logic0105P1", "https://youtu.be/vZJiGPWiGnk"],
-			["logic0105P2", "https://youtu.be/4rh8dH2lXTM"],
-			["logic0105P3", "https://youtu.be/gyQEnZy-y5Q"],
-			["logic0105P4", "https://youtu.be/7xCKgZMey3c"],
-			["logic0106P1", "https://youtu.be/H5k6XcJfnKc"],
-			["logic0106P2", "https://youtu.be/ncQOTR9NAp4"],
-			["logic0106P3", "https://youtu.be/D-WBrmG9y5g"],
-			["logic0106P4", "https://youtu.be/1DXsbnj2irQ"],
-		],
-		"20220303":[
-		        ["algo0302P1", "https://youtu.be/jWlAJf-GfFU"],
-		        ["algo0302P2", "https://youtu.be/NvCLaa2frGo"],
-		        ["algo0302P3", "https://youtu.be/cCkUdnOJRsQ"],
-		        ["algo0303P1", "https://youtu.be/jhV28yPu0EQ"],
-		        ["algo0303P2", "https://youtu.be/12ye2mQUPNc"],
-		        ["algo0303P3", "https://youtu.be/R8ZMmmu0CC4"],
-		],
-		"20220310":[
-		        ["algo0309P1", "https://youtu.be/ifp8-aUKewU"],
-		        ["algo0309P2", "https://youtu.be/6beS0HcV3eg"],
-		        ["algo0309P3", "https://youtu.be/h8cehGsejCk"],
-		        ["algo0310P1", "https://youtu.be/BC0eEE9WE-M"],
-		        ["algo0310P2", "https://youtu.be/Mk0-ZBbb3co"],
-		        ["algo0310P3", "https://youtu.be/QdllVY8qAOc"],
-		],
-	};
+    let videos = {
+        "110-1": {
+            "20211014": [
+                ["logic1013P1", "https://reurl.cc/Mk4Lav"],
+                ["logic1013P2", "https://reurl.cc/q1r4Qg"],
+                ["logic1013P3", "https://reurl.cc/YjVRyD"],
+                ["logic1013P4", "https://reurl.cc/oxrAbj"],
+                ["logic1014P1", "https://reurl.cc/Mk4Lrv"],
+                ["logic1014P2", "https://reurl.cc/YjVRLa"],
+                ["logic1014P3", "https://reurl.cc/8208AX"],
+            ],
+            "20211021": [
+                ["ES1018P1", "https://reurl.cc/0x4W5l"],
+                ["ES1018P2", "https://reurl.cc/6DjqrM"],
+                ["ES1018P3", "https://reurl.cc/52DRen"],
+                ["logic1018P1", "https://reurl.cc/XlZaDR"],
+                ["logic1018P2", "https://reurl.cc/jgQmdD"],
+                ["logic1020P1", "https://reurl.cc/vgpKDk"],
+                ["logic1020P3", "https://reurl.cc/Q65VdM"],
+                ["logic1020P2", "https://reurl.cc/oxVKdq"],
+                ["logic1021P1", "https://reurl.cc/aNZM5Z"],
+                ["logic1021P2", "https://reurl.cc/Gb5GmZ"],
+                ["logic1021P3", "https://reurl.cc/Ok5RkX"],
+            ],
+            "20211028": [
+                ["ES1025P1", "https://youtu.be/GVuD3ibNNQo"],
+                ["ES1025P2", "https://youtu.be/2fdQ2PED0sk"],
+                ["ES1025P3", "https://youtu.be/_3bWaApHUcY"],
+                ["logic1025P1", "https://youtu.be/pqcfE1djqK8"],
+                ["logic1025P2", "https://youtu.be/V1ALyLBUbF4"],
+                ["logic1025P3", "https://youtu.be/iWM0nlEQ4Iw"],
+                ["logic1027P1", "https://youtu.be/KEz72-lg9pk"],
+                ["logic1027P2", "https://youtu.be/iChw4uDG_Ys"],
+                ["logic1027P3", "https://youtu.be/YoSccYzJrwE"],
+                ["logic1028P1", "https://youtu.be/fwGZqxzaPzc"],
+                ["logic1028P2", "https://youtu.be/qTsCthYU03E"],
+                ["logic1028P3", "https://youtu.be/96daDN7xTdM"],
+            ],
+            "20211101": [
+                ["ES1101P1", "https://youtu.be/EcpOKxzybU4"],
+                ["ES1101P2", "https://youtu.be/CaM2f5mlaHI"],
+                ["ES1101P3", "https://youtu.be/qHNOaeHyq5c"],
+                ["logic1101P1", "https://youtu.be/5l1XWhG8xXQ"],
+                ["logic1103P1", "https://youtu.be/2-f2Mw7jDQI"],
+                ["logic1104P1", "https://youtu.be/PvWN2V-4cjw"],
+            ],
+            "20211118": [
+                ["ES1115P1", "https://youtu.be/i9H-rTL6oL0"],
+                ["ES1115P2", "https://youtu.be/3qdmq3GI4oc"],
+                ["ES1115P3", "https://youtu.be/9frWmk76puo"],
+                ["logic1117P1", "https://youtu.be/jtAE66ma-YI"],
+                ["logic1118P1", "https://youtu.be/oRWZ-a36268"],
+            ],
+            "20211125": [
+                ["ES1122P1", "https://youtu.be/2QOdzAqFOZc"],
+                ["ES1122P2", "https://youtu.be/BgLPrBNc5-Y"],
+                ["logic1122P1", "https://youtu.be/KZ5NqroLF24"],
+                ["logic1122P2", "https://youtu.be/_zWHKBJa9nM"],
+                ["logic1122P3", "https://youtu.be/Qz5LxPu9hhM"],
+                ["logic1124P1", "https://youtu.be/Jt9rfcp-5to"],
+                ["logic1124P2", "https://youtu.be/1AygY-xeIAE"],
+                ["logic1124P3", "https://youtu.be/wQNGDuJ8eSI"],
+                ["logic1124P4", "https://youtu.be/ZUUa_iqiMVU"],
+                ["logic1125P1", "https://youtu.be/IwzlNqwegic"],
+                ["logic1125P2", "https://youtu.be/ivSjvs82yDY"],
+                ["logic1125P3", "https://youtu.be/019dgmy5JSc"],
+            ],
+            "20211202": [
+                ["ES1129P1", "https://youtu.be/lWvJ_v7ISDE"],
+                ["ES1129P2", "https://youtu.be/E48DvY0Favs"],
+                ["ES1129P3", "https://youtu.be/4mEfHXs6vNM"],
+                ["logic1129P1", "https://youtu.be/jWuAbrJfwm0"],
+                ["logic1129P2", "https://youtu.be/rx0PexuzM6c"],
+                ["logic1201P1", "https://youtu.be/SS93kAXnpHU"],
+                ["logic1201P2", "https://youtu.be/gPNjLwfuzFc"],
+                ["logic1201P3", "https://youtu.be/ZrVquhAn0SY"],
+                ["logic1202P1", "https://youtu.be/zydyBPcKyTs"],
+                ["logic1202P2", "https://youtu.be/A9RLrFG1_hE"],
+                ["logic1202P3", "https://youtu.be/uCj0OVaRP1s"],
+                ["logic1202P4", "https://youtu.be/FLUsmKmKtsA"],
+            ],
+            "20211206": [
+                ["ES1206P1", "https://youtu.be/xcf9elDxi10"],
+                ["ES1206P2", "https://youtu.be/cWOl2bfLUAo"],
+                ["ES1206P3", "https://youtu.be/TWJ-HV5g_OY"],
+                ["logic1206P1", "https://youtu.be/NLlwyXmPD1A"],
+                ["logic1206P2", "https://youtu.be/6ejwcFYGzCk"],
+            ],
+            "20211216": [
+                ["logic1216P1", "https://youtu.be/6_7z98k5R1U"],
+                ["logic1216P2", "https://youtu.be/EL5P1TR6NPs"],
+                ["logic1216P3", "https://youtu.be/eqgcAIdWNdw"],
+                ["logic1216P4", "https://youtu.be/QtH_ugD7j2E"],
+                ["logic1216P5", "https://youtu.be/PY_zGlS_too"],
+            ],
+            "20211224": [
+                ["ES1220P1", "https://youtu.be/VmgKaxyq0F8"],
+                ["ES1220P2", "https://youtu.be/Bv4q37aQiXk"],
+                ["ES1220P3", "https://youtu.be/9u7rb-ChLv8"],
+                ["ES1220P4", "https://youtu.be/lYWT5lA8-GE"],
+                ["logic1220P1", "https://youtu.be/K2P8En-zilY"],
+                ["logic1220P2", "https://youtu.be/3oTn3EVqhTU"],
+                ["logic1220P3", "https://youtu.be/yTiWfl_0i-I"],
+                ["logic1222P1", "https://youtu.be/0SZFjQBMVdw"],
+                ["logic1222P2", "https://youtu.be/3uA7R1_KDhs"],
+                ["logic1223P1", "https://youtu.be/H2-Hwrn1TdE"],
+                ["logic1223P2", "https://youtu.be/Lla47RzkUG4"],
+                ["logic1223P3", "https://youtu.be/SbFNn7kj4FA"],
+            ],
+            "20220101": [
+                ["ES1227P1", "https://youtu.be/8cubTftj1J4"],
+                ["ES1227P2", "https://youtu.be/RgJfJJQF-7Q"],
+                ["logic1227P1", "https://youtu.be/Qphb1VK1Kxo"],
+                ["logic1227P2", "https://youtu.be/-YN6UAwUu8w"],
+                ["logic1227P3", "https://youtu.be/gDwJAIsYXdk"],
+                ["logic1229P1", "https://youtu.be/uZVm0cdqFWw"],
+                ["logic1229P2", "https://youtu.be/4OQasixl3MQ"],
+                ["logic1229P3", "https://youtu.be/YinVDB7D87M"],
+                ["logic1230P1", "https://youtu.be/K6eaxqWoPIs"],
+                ["logic1230P2", "https://youtu.be/__XuDajNMqQ"],
+                ["logic1230P3", "https://youtu.be/lA1qBp2XdKE"],
+                ["logic1230P4", "https://youtu.be/_OT5TV-qoPw"],
+            ],
+            "20220106": [
+                ["logic0103P1", "https://youtu.be/BL_OrjOzR8A"],
+                ["logic0103P2", "https://youtu.be/r6a02OiRXfE"],
+                ["logic0103P3", "https://youtu.be/F7tgHrZ5cCI"],
+                ["logic0105P1", "https://youtu.be/vZJiGPWiGnk"],
+                ["logic0105P2", "https://youtu.be/4rh8dH2lXTM"],
+                ["logic0105P3", "https://youtu.be/gyQEnZy-y5Q"],
+                ["logic0105P4", "https://youtu.be/7xCKgZMey3c"],
+                ["logic0106P1", "https://youtu.be/H5k6XcJfnKc"],
+                ["logic0106P2", "https://youtu.be/ncQOTR9NAp4"],
+                ["logic0106P3", "https://youtu.be/D-WBrmG9y5g"],
+                ["logic0106P4", "https://youtu.be/1DXsbnj2irQ"],
+            ],
+        },
+        "110-2": {
+            "20220303": [
+                ["algo0302P1", "https://youtu.be/jWlAJf-GfFU"],
+                ["algo0302P2", "https://youtu.be/NvCLaa2frGo"],
+                ["algo0302P3", "https://youtu.be/cCkUdnOJRsQ"],
+                ["algo0303P1", "https://youtu.be/jhV28yPu0EQ"],
+                ["algo0303P2", "https://youtu.be/12ye2mQUPNc"],
+                ["algo0303P3", "https://youtu.be/R8ZMmmu0CC4"],
+            ],
+            "20220310": [
+                ["algo0309P1", "https://youtu.be/ifp8-aUKewU"],
+                ["algo0309P2", "https://youtu.be/6beS0HcV3eg"],
+                ["algo0309P3", "https://youtu.be/h8cehGsejCk"],
+                ["algo0310P1", "https://youtu.be/BC0eEE9WE-M"],
+                ["algo0310P2", "https://youtu.be/Mk0-ZBbb3co"],
+                ["algo0310P3", "https://youtu.be/QdllVY8qAOc"],
+            ],
+        },
+        "111-1": {},
+        "111-2": {},
+    };
+    let start_index = {
+        "110-1": 1,
+        "110-2": 111,
+        "111-1": 0,
+        "111-2": 0,
+    };
 
-	let index = 1;
+    function show(key) {
+        ["110-1", "110-2", "111-1", "111-2"].forEach(button_id => {
+            if(button_id == key) {
+                document.getElementById(button_id).classList.add('btn-secondary');
+                document.getElementById(button_id).classList.remove('btn-outline-secondary');
+            }
+            else {
+                document.getElementById(button_id).classList.add('btn-outline-secondary');
+                document.getElementById(button_id).classList.remove('btn-secondary');
+            }
+        });
 
-	for (date in videos) {
-		append_date(date);
-		for (i in videos[date]) {
-			append_link(index, videos[date][i]);
-			index++;
-		}
-	}
+        document.getElementById("tbody").innerHTML = "";
 
-	function append_date(input_date) {
-		let tbody = document.getElementById("tbody");
-		let tr = document.createElement("tr");
-		let empty_td1 = document.createElement("td");
-		let empty_td2 = document.createElement("td");
-		let date_td = document.createElement("td");
+        let index = start_index[key];
+        for (let date in videos[key]) {
+            append_date(date);
+            for (let i in videos[key][date]) {
+                append_link(index, videos[key][date][i]);
+                index++;
+            }
+        }
+    }
 
-		let y = input_date.substring(0, 4);
-		let m = input_date.substring(4, 6);
-		let d = input_date.substring(6, 8);
-		let date = y + " / " + m + " / " + d;
-		date_td.innerHTML = "上傳日期：" + date;
+    function append_date(input_date) {
+        let tbody = document.getElementById("tbody");
+        let tr = document.createElement("tr");
+        let empty_td1 = document.createElement("td");
+        let empty_td2 = document.createElement("td");
+        let date_td = document.createElement("td");
 
-		tr.appendChild(empty_td1);
-		tr.appendChild(date_td);
-		tr.appendChild(empty_td2);
-		tbody.appendChild(tr);
-	}
+        let y = input_date.substring(0, 4);
+        let m = input_date.substring(4, 6);
+        let d = input_date.substring(6, 8);
+        let date = y + " / " + m + " / " + d;
+        date_td.innerHTML = "上傳日期：" + date;
 
-	function append_link(index, array) {
-		let tbody = document.getElementById("tbody");
-		let tr = document.createElement("tr");
-		let td1 = document.createElement("td");
-		let td2 = document.createElement("td");
-		let td3 = document.createElement("td");
+        tr.appendChild(empty_td1);
+        tr.appendChild(date_td);
+        tr.appendChild(empty_td2);
+        tbody.appendChild(tr);
+    }
 
-		td1.innerHTML = index;
-		td2.innerHTML = array[0];
+    function append_link(index, array) {
+        let tbody = document.getElementById("tbody");
+        let tr = document.createElement("tr");
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        let td3 = document.createElement("td");
 
-		td3.style.fontFamily = 'Courier new';
-		let a = document.createElement("a");
-		a.setAttribute("href", array[1]);
-		a.setAttribute("target", "_blank");
-		a.innerHTML = array[1];
-		td3.appendChild(a);
+        td1.innerHTML = index;
+        td2.innerHTML = array[0];
 
-		tr.appendChild(td1);
-		tr.appendChild(td2);
-		tr.appendChild(td3);
-		tbody.appendChild(tr);
-	}
+        td3.style.fontFamily = 'Courier new';
+        let a = document.createElement("a");
+        a.setAttribute("href", array[1]);
+        a.setAttribute("target", "_blank");
+        a.innerHTML = array[1];
+        td3.appendChild(a);
 
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tbody.appendChild(tr);
+    }
+
+    window.onload = function () {
+        show("110-1");
+    }
 </script>
 
 </html>
