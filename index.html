@@ -24,7 +24,7 @@
 <body>
     <div class="container" style="margin-top: 40px !important;">
         <h4>台中科技大學 張雅芬老師 上課影片</h4>
-        <div>
+        <div id="button_row">
             <button id="110-1" class="btn btn-outline-secondary" onclick="show(this.id)">110 上</button>
             <button id="110-2" class="btn btn-outline-secondary" onclick="show(this.id)">110 下</button>
             <button id="111-1" class="btn btn-outline-secondary" onclick="show(this.id)">111 上</button>
@@ -39,12 +39,12 @@
                 </tr>
             </thead>
             <tbody id="tbody">
-                <!-- add by JavaScript -->
             </tbody>
         </table>
     </div>
 </body>
 <script>
+    let button_list = [];
     let videos = {
         "110-1": {
             "20211014": [
@@ -211,8 +211,8 @@
     };
 
     function show(key) {
-        ["110-1", "110-2", "111-1", "111-2"].forEach(button_id => {
-            if(button_id == key) {
+        button_list.forEach(button_id => {
+            if (button_id == key) {
                 document.getElementById(button_id).classList.add('btn-secondary');
                 document.getElementById(button_id).classList.remove('btn-outline-secondary');
             }
@@ -236,6 +236,7 @@
 
     function append_date(input_date) {
         let tbody = document.getElementById("tbody");
+        
         let tr = document.createElement("tr");
         let empty_td1 = document.createElement("td");
         let empty_td2 = document.createElement("td");
@@ -277,7 +278,10 @@
     }
 
     window.onload = function () {
-        show("110-1");
+        let str = document.getElementById("button_row").innerHTML;
+        let regex = /[\d-]+(?=" class)/g;
+        button_list = str.match(regex);
+        show(button_list[0]);
     }
 </script>
 
