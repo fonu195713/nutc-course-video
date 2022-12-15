@@ -1,7 +1,7 @@
 import * as data from "./data.json" assert {type: 'json'};
 
 let button_list = [];
-let videos = data;
+let videos = {};
 
 let start_index = {
     "110-1": 1,
@@ -78,6 +78,7 @@ function append_link(index, array) {
 }
 
 window.onload = function () {
+    videos = ;
     let str = document.getElementById("button_row").innerHTML;
     let regex = /[\d-]+(?=" class)/g;
     button_list = str.match(regex);
