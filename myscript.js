@@ -83,3 +83,5 @@ window.onload = function () {
     button_list = str.match(regex);
     show(button_list[0]);
 }
+
+console.log("nutc course video");
