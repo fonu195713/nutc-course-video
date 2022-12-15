@@ -79,6 +79,7 @@ function append_link(index, array) {
 
 window.onload = function () {
     videos = data;
+    console.log(videos);
     let str = document.getElementById("button_row").innerHTML;
     let regex = /[\d-]+(?=" class)/g;
     button_list = str.match(regex);
