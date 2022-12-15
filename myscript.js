@@ -84,6 +84,6 @@ window.onload = function () {
 }
 
 document.getElementById("110-1").onclick = show("110-1");
-document.getElementById("110-1").onclick = show("110-2");
-document.getElementById("110-1").onclick = show("111-1");
-document.getElementById("110-1").onclick = show("111-2");
+document.getElementById("110-2").onclick = show("110-2");
+document.getElementById("111-1").onclick = show("111-1");
+document.getElementById("111-2").onclick = show("111-2");
