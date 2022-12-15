@@ -83,7 +83,7 @@ window.onload = function () {
     show(button_list[0]);
 }
 
-document.getElementById("110-1").onclick = show("110-1");
-document.getElementById("110-2").onclick = show("110-2");
-document.getElementById("111-1").onclick = show("111-1");
-document.getElementById("111-2").onclick = show("111-2");
+document.getElementById("110-1").onclick = function() { show("110-1"); }
+document.getElementById("110-2").onclick = function() { show("110-2"); }
+document.getElementById("111-1").onclick = function() { show("111-1"); }
+document.getElementById("111-2").onclick = function() { show("111-2"); }
