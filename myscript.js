@@ -1,4 +1,4 @@
-import * as data from "data.json"
+import * as data from "data.json";
 
 let button_list = [];
 let videos = data;
