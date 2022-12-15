@@ -82,3 +82,8 @@ window.onload = function () {
     button_list = str.match(regex);
     show(button_list[0]);
 }
+
+document.getElementById("110-1").onclick = show("110-1");
+document.getElementById("110-1").onclick = show("110-2");
+document.getElementById("110-1").onclick = show("111-1");
+document.getElementById("110-1").onclick = show("111-2");
