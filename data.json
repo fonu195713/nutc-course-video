@@ -349,5 +349,14 @@
             ["1logic0105P3", "https://youtu.be/yg83H8419Uo"]
         ]
     },
-    "111-2": {}
+    "111-2": {
+        "20230302": [
+            ["2algo0301P1", "https://youtu.be/bWXFzs-659k"],
+            ["2algo0301P2", "https://youtu.be/1g-M62pQqAc"],
+            ["2algo0301P3", "https://youtu.be/lyWE58PrXZ4"],
+            ["1algo0302P1", "https://youtu.be/uadL1u0sTWg"],
+            ["1algo0302P2", "https://youtu.be/G9rsn27Jnr8"],
+            ["1algo0302P3", "https://youtu.be/GoUIVpqyX2o"]
+        ]
+    }
 }
