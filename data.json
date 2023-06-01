@@ -468,6 +468,17 @@
             ["1algo0525P1", "https://youtu.be/RFmICfJkVbY"],
             ["1algo0525P2", "https://youtu.be/bT5SZRQgYXE"],
             ["1algo0525P3", "https://youtu.be/tekMibvxia0"]
+        ],
+        "20230601": [
+            ["IS0529P1", "https://youtu.be/Glhp1iCsiyE"],
+            ["IS0529P2", "https://youtu.be/zcUCX17u0jc"],
+            ["IS0529P3", "https://youtu.be/hRDOYjcFk7U"],
+            ["2algo0531P1", "https://youtu.be/OVKf5AL75r4"],
+            ["2algo0531P2", "https://youtu.be/cdFZqpOzly0"],
+            ["2algo0531P3", "https://youtu.be/HOlWmz49tAs"],
+            ["1algo0601P1", "https://youtu.be/UIFYAxLtrJ4"],
+            ["1algo0601P2", "https://youtu.be/d4tZC0ssarw"],
+            ["1algo0601P3", "https://youtu.be/iVxv2NRkvCA"]
         ]
     }
 }
